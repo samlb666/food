@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
@@ -25,15 +26,32 @@
       </div>
     </ons-toolbar>
 
-    
-  
-    <ons-input type="date">
-      <select>
-        <option value="breakfast">breakfast</option>
-        <option value="brunch">brunch</option>
-      </select>
+    <div class="center">
+      <div>
+          <select class="select-input select-input--material">
+              <option>Breakfast</option>
+              <option>Brunch</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Snack</option>
+                <option>Drink</option>
+              </select>
+      </div>
+     
+        
+        <div>
+          <label class="switch">
+            <input type="checkbox" class="switch__input">
+            <div class="switch__toggle">
+              <div class="switch__handle"></div>
+            </div>
+          </label>
+        </div>
+        <div>
+          <ons-input type="file" accept="image/*;capture=camera">
+      </div>
+  </div>
 
-    <ons-input type="file" accept="image/*;capture=camera">
   </ons-page>
   
 </body>
