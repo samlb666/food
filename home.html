@@ -7,13 +7,38 @@
 
   
     
-  
-      <div class="left">
-        <ons-toolbar-button onclick="openMenu()">
-          <ons-icon icon="md-menu"></ons-icon>
-        </ons-toolbar-button>
-      </div>
-    </ons-toolbar>
+<ons-toolbar id="home-toolbar">
+  <div class="center">Home</div>
+  <div class="left">
+    <ons-toolbar-button onclick="openMenu()">
+      <ons-icon icon="md-menu"></ons-icon>
+    </ons-toolbar-button>
+  </div>
+</ons-toolbar>
+
+
+
+      <ons-icon
+  icon="fa-spinner" spin>
+</ons-icon>
+
+<ons-splitter>
+  <!-- The side menu -->
+  <ons-splitter-side id="menu" collapse>
+    <ons-page>
+      <ons-list>
+        <ons-list-item onclick="loadPage('about.html')">
+          About
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+  </ons-splitter-side>
+
+  <!-- Everything not in the side menu -->
+  <ons-splitter-content>
+    <ons-navigator id="navigator" page="index.html"></ons-navigator>
+  </ons-splitter-content>
+</ons-splitter>
 
     <div class="center">
       <div>
