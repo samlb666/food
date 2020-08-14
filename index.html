@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
-    <ons-navigator id="navigator">
+  <ons-navigator id="navigator">
         <ons-page>
             
           <div style="text-align: center; margin-top: 200px">
@@ -33,20 +34,21 @@
       
         </ons-page>
       </ons-navigator>
+      
 
 </body>
 <script>
-    const login = () => {
-const username = document.querySelector('#username').value;
-const password = document.querySelector('#password').value;
+const login = () => {
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
 
-if (username === 'user' && password === 'pass') {
-// call the navigator to move to the new page
-const navigator = document.querySelector('#navigator');
-navigator.resetToPage('home.html');
-} else {
-ons.notification.alert('Wrong username/password combination');
-}
+  if (username === 'user' && password === 'pass') {
+    // call the navigator to move to the new page
+    const navigator = document.querySelector('#navigator');
+    navigator.resetToPage('home.html');
+  } else {
+    ons.notification.alert('Wrong username/password combination');
+  }
 }
 </script>
 
