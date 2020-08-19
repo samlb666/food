@@ -5,8 +5,6 @@
       };
     </script>
 
-  
-    
 <ons-toolbar id="home-toolbar">
   <div class="center">Home</div>
   <div class="left">
@@ -15,12 +13,6 @@
     </ons-toolbar-button>
   </div>
 </ons-toolbar>
-
-
-
-      <ons-icon
-  icon="fa-spinner" spin>
-</ons-icon>
 
 <ons-splitter>
   <!-- The side menu -->
@@ -40,29 +32,12 @@
   </ons-splitter-content>
 </ons-splitter>
 
-    <div class="center">
-      <div>
-          <select class="select-input select-input--material">
-              <option>Breakfast</option>
-              <option>Brunch</option>
-              <option>Lunch</option>
-              <option>Dinner</option>
-              <option>Snack</option>
-                <option>Drink</option>
-              </select>
-      </div>
-     
-        
-        <div>
-          <label class="switch">
-            <input type="checkbox" class="switch__input">
-            <div class="switch__toggle">
-              <div class="switch__handle"></div>
-            </div>
-          </label>
-        </div>
-        <div>
-          <ons-input type="file" accept="image/*;capture=camera">
-      </div>
-  </div>
+<div class="center">
+<ons-button onclick="loadPage('meal.html')">Enter Meal</ons-button>
+</div>
+
+<div class="center">
+  <ons-button onclick="loadPage('report.html')">Report</ons-button>
+</div>
+ 
 </ons-page>
