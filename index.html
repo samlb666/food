@@ -105,7 +105,9 @@ var time = date + "/" + month + "/" + year;
 
 localStorage.setItem('time',time)
 
-ons.notification.toast('Data saved');
+ons.notification.toast('Data saved', {
+    timeout: 2000
+  });
 }
 
 const loadPage = (page) => {
