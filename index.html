@@ -91,6 +91,21 @@ localStorage.setItem('exercise',exercise);
     navigator.resetToPage('home.html');
 }
 
+function data(){
+  const kilojules = document.getElementById('kilojules').value
+  localStorage.setItem('kilojules',kilojules)
+
+  var d = new Date();
+ 
+var date = d.getDate();
+var month = d.getMonth() + 1;
+var year = d.getFullYear();
+ 
+var time = date + "/" + month + "/" + year;
+
+localStorage.setItem('time',time)
+}
+
 const loadPage = (page) => {
   document.querySelector('#menu').close();
   document.querySelector('#navigator').bringPageTop(page, { animation: 'fade' });
