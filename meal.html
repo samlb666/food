@@ -1,23 +1,32 @@
 <ons-page id="meal">
+    <script>
+    
+    </script>
     <ons-toolbar>
         <div class="center">Enter Meal</div>
         <div class="left">
             <ons-back-button></ons-back-button>
           </div>
       </ons-toolbar>
-    <div class="center">
-        <div>
-            <select class="select-input select-input--material">
-                <option>Breakfast</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-                <option>Snack</option>
-                <option>Drink</option>
+    <div>
+        <div class="centre">
+            <select class="select-input select-input--material" id="mealtype">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="snack">Snack</option>
+                <option value="drink">Drink</option>
                 </select>
-
         </div>
-        <div>
-            <ons-input type="file" accept="image/*;capture=camera">
-        </div>
+    <div class="centre">
+        <ons-input modifier="underbar" placeholder="Food Name" id="food"></ons-input>
+    </div>
+    <div class="centre">
+        <ons-input modifier="underbar" placeholder="Enter Kilojules Amount" id="kilojules"></ons-input>
+    </div>
+    
+        <div class="centre">
+            <ons-button onclick="addMeal()">Add</ons-button>
+            </div>
     </div>
 </ons-page>

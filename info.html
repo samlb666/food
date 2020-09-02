@@ -1,0 +1,37 @@
+<ons-page id="create">
+    <ons-toolbar>
+        <div class="center">Information</div>
+        <div class="left">
+            <ons-back-button></ons-back-button>
+          </div>
+      </ons-toolbar>
+
+    <div style="text-align: center; margin-top: 200px">
+        <p>
+          <ons-input id="height" placeholder="Height in cm" modifier="underbar"></ons-input>
+        </p>
+        <p>
+            <ons-input id="weight" placeholder="Weight in kgs" modifier="underbar"></ons-input>
+          </p>
+        <p>
+            <ons-input id="age" placeholder="Age" modifier="underbar"></ons-input>
+          </p>
+          <label>Gender</label>
+          <select id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+<br>
+          <label>How often do you exercise?</label>
+          <select id="exercise">
+            <option value="1">Little to none</option>
+            <option value="2">Some</option>
+            <option value="3">A lot</option>
+          </select>
+    
+    
+        <p>
+          <ons-button onclick='finish()'>Finish</ons-button>
+        </p>
+        </div>
+</ons-page>

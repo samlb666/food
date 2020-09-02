@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
     <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
   <ons-navigator id="navigator">
@@ -30,30 +31,124 @@
           <p>
             <ons-button onclick="login()">Sign in</ons-button>
           </p>
+          <p>
+            <ons-button onclick='goCreate()'>Create Account</ons-button>
+          </p>
+
           </div>
       
         </ons-page>
       </ons-navigator>
 
 </body>
-<script>
+<script type="text/javascript">
+
+
 const login = () => {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
 
-  if (username === '' && password === '') {
-    // call the navigator to move to the new page
+  if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
     const navigator = document.querySelector('#navigator');
     navigator.resetToPage('home.html');
   } else {
-    ons.notification.alert('Wrong username/password combination');
+    ons.notification.toast('Wrong username/password combination');
   }
+}
+
+function goCreate(){
+  const navigator = document.querySelector('#navigator');
+    navigator.resetToPage('create.html');
+}
+
+
+function create(){
+const usernameKey = document.getElementById('createUsername').value;
+localStorage.setItem('username',usernameKey);
+const passwordKey = document.getElementById('createPassword').value;
+localStorage.setItem('password',passwordKey);
+const navigator = document.querySelector('#navigator');
+    navigator.resetToPage('info.html');
+}
+
+function finish(){
+const height = document.getElementById('height').value;
+localStorage.setItem('height',height);
+
+const weight = document.getElementById('weight').value;
+localStorage.setItem('weight',weight);
+
+const age = document.getElementById('age').value;
+localStorage.setItem('age',age);
+
+const gender = document.getElementById('gender').value;
+localStorage.setItem('gender',gender);
+
+const exercise = document.getElementById('exercise').value;
+localStorage.setItem('exercise',exercise);
+
+  const navigator = document.querySelector('#navigator');
+    navigator.resetToPage('home.html');
 }
 
 const loadPage = (page) => {
   document.querySelector('#menu').close();
   document.querySelector('#navigator').bringPageTop(page, { animation: 'fade' });
 };
+
+
+// meal.html
+
+    
+        /* let meal = [
+            { type: "breakfast",
+            photo: "picture.jpg",
+            calorie: 2500
+            }
+        ]
+        localStorage.setItem('mealinfo',JSON.stringify(meal)) */
+
+        function addMeal(){
+
+const food = document.getElementById('food').value
+const mealtype = document.getElementById('mealtype').value
+const kilojules = document.getElementById('kilojules').value
+var d = new Date();
+ 
+var date = d.getDate();
+var month = d.getMonth() + 1;
+var year = d.getFullYear();
+ 
+var time = date + "/" + month + "/" + year;
+
+let newMeal = { 
+    type: mealtype,
+    name: food,
+    kilojules: kilojules,
+    date: time,
+    }
+
+// let meals = JSON.parse(localStorage.getItem("mealinfo"))
+// console.log(meals[0])
+
+if(localStorage.getItem('mealinfo')===null){
+    meals = [];
+}else{
+    meals = JSON.parse(localStorage.getItem('mealinfo'));
+}
+
+meals.push(newMeal)
+console.log(meals)
+localStorage.setItem('mealinfo',JSON.stringify(meals))
+
+
+}
+
+/*<div class="centre"> 
+         <ons-input type="file" accept="image/*;capture=camera">
+    </div> */
+
+// report.html
 </script>
 
 </html>

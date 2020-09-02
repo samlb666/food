@@ -1,8 +1,33 @@
 <ons-page id="meal">
-    <ons-toolbar>
-        <div class="center">Enter Meal</div>
-        <div class="left">
-            <ons-back-button></ons-back-button>
-          </div>
-      </ons-toolbar>
-    </ons-page>
+
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+var data = parseInt(localStorage.getItem('mealinfo'));
+
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Kilojules'],
+  ['time', data],
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.LineChart(document.getElementById('chart'));
+  chart.draw(data, options);
+}
+alert(data);
+</script>    
+  <ons-toolbar>
+    <div class="center">Report</div>
+      <div class="left">
+        <ons-back-button></ons-back-button>
+      </div>
+  </ons-toolbar>
+  <div id="chart"></div>
+</ons-page>
