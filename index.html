@@ -91,9 +91,9 @@ localStorage.setItem('exercise',exercise);
     navigator.resetToPage('home.html');
 }
 
-function data(){
-  const kilojules = document.getElementById('kilojules').value
-  localStorage.setItem('kilojules',kilojules)
+/*function data(){
+  const kilojules = document.getElementById('kilojules').value;
+  localStorage.setItem('kilojules',kilojules);
 
   var d = new Date();
  
@@ -103,13 +103,19 @@ var year = d.getFullYear();
  
 var time = date + "/" + month + "/" + year;
 
-localStorage.setItem('time',time)
+localStorage.setItem('time',time);
+
+const mealtype = document.getElementById('mealtype').value;
+localStorage.setItem('mealtype',mealtype);
+
+const mealname = document.getElementById('food').value;
+localStorage.setItem('mealname',mealname);
 
 ons.notification.toast('Data saved', {
     timeout: 2000
   });
 }
-
+*/
 const loadPage = (page) => {
   document.querySelector('#menu').close();
   document.querySelector('#navigator').bringPageTop(page, { animation: 'fade' });
@@ -159,9 +165,16 @@ if(localStorage.getItem('mealinfo')===null){
 meals.push(newMeal)
 console.log(meals)
 localStorage.setItem('mealinfo',JSON.stringify(meals))
+document.getElementById('food').value = ''
+document.getElementById('mealtype').value = ''
+document.getElementById('kilojules').value = ''
 
-
+ons.notification.toast('Data saved', {
+    timeout: 2000
+  });
 }
+
+
 
 /*<div class="centre"> 
          <ons-input type="file" accept="image/*;capture=camera">

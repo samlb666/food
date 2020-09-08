@@ -4,19 +4,28 @@
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
-var data1 = JSON.parse(localStorage.getItem("kilojules"));
-
-var day1 = localStorage.getItem("time");
-var day2 = 'Tuesday'
+var meals = JSON.parse(localStorage.getItem('mealinfo'));
+console.log(meals);
 
 
 
 // Draw the chart and set the chart values
+
 function drawChart() {
-  var data = google.visualization.arrayToDataTable([
+  var meals = JSON.parse(localStorage.getItem('mealinfo'));
+console.log(meals);
+  mealData = [ ['time','kilojules']];
+  for(let meal of meals){
+    mealData.push([meal.date, parseInt(meal.kilojules)])
+} 
+console.log(mealData);
+  var data = google.visualization.arrayToDataTable(
+  /*[
   ['Time', 'Kilojules'],
-  [day1,data1],
-]);
+  [day1,60],
+  [day1,34],]*/
+  mealData
+  );
 
   // Optional; add a title and set the width and height of the chart
   var options = {title:'Daily Kilojule Intake',
@@ -28,6 +37,7 @@ function drawChart() {
   var chart = new google.visualization.LineChart(document.getElementById('chart'));
   chart.draw(data, options);
 }
+
 //alert(data);
 </script>    
   <ons-toolbar>
@@ -37,4 +47,5 @@ function drawChart() {
       </div>
   </ons-toolbar>
   <div id="chart"></div>
+  <div id="report"></div>
 </ons-page>
